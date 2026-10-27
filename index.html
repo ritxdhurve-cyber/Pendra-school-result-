@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pendra School Result</title>
+<style>
+body{font-family:Arial;background:#eef4ff;margin:0;padding:12px}
+.top{background:#0b3d91;color:white;text-align:center;padding:15px;border-radius:12px}
+.box{background:white;padding:18px;margin-top:14px;border-radius:12px;box-shadow:0 2px 10px #999}
+input{width:92%;padding:13px;border-radius:8px;border:1px solid #777;font-size:16px}
+button{width:96%;padding:13px;background:#0b3d91;color:white;border:none;border-radius:8px;font-size:17px;margin-top:10px}
+.res{margin-top:15px;background:#f8fff8;padding:12px;border-radius:8px;border:1px solid green;display:none;line-height:24px}
+.small{color:gray;font-size:12px;margin-top:10px}
+</style>
+</head>
+<body>
+
+<div class="top">
+<h2>Pendra School</h2>
+<p>Result 2026 - Class Report</p>
+</div>
+
+<div class="box">
+<h3>Roll No डालें</h3>
+<input id="roll" type="number" placeholder="1111 se 1115 tak">
+<button onclick="dekho()">Result देखें</button>
+<div id="resultBox" class="res"></div>
+<div class="small">Demo: 1111, 1112, 1113, 1114, 1115</div>
+</div>
+
+<script>
+var list = {
+"1111": {name:"Aman 1", hindi:20, english:10, math:20, total:50},
+"1112": {name:"Aman 2", hindi:10, english:20, math:20, total:50},
+"1113": {name:"Aman 3", hindi:25, english:20, math:5, total:50},
+"1114": {name:"Aman 4", hindi:15, english:15, math:20, total:50},
+"1115": {name:"Aman 5", hindi:30, english:10, math:10, total:50}
+};
+
+function dekho(){
+var r = document.getElementById("roll").value.trim();
+var box = document.getElementById("resultBox");
+if(r==""){alert("Roll likh bhai"); return;}
+if(list[r]){
+var s = list[r];
+box.style.display="block";
+box.innerHTML = "<b>School:</b> Pendra School<br><b>Name:</b> "+s.name+"<br><b>Roll:</b> "+r+"<hr><b>Hindi:</b> "+s.hindi+"<br><b>English:</b> "+s.english+"<br><b>Math:</b> "+s.math+"<br><hr><b>Total:</b> "+s.total+"/ 75 (ye 3 subject ka total hai)<br><b>Status:</b> Result Dekh Liya";
+} else {
+box.style.display="block";
+box.innerHTML = "❌ Roll No "+r+" galat hai";
+}
+}
+</script>
+
+</body>
+</html>
